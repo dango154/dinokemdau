@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yesButton = document.getElementById("yes-btn");
     const noButton = document.getElementById("no-btn");
     const helloKittyImage = document.querySelector(".hello-kitty");
+    const questionText = document.getElementById("question-text"); 
 
     let isMusicPlaying = false;
     let audio = null; 
@@ -13,11 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
 
-
     function createSparkle() {
         const sparkle = document.createElement("div");
-
-   
         const rand = Math.random();
         let sparkleClass;
         if (rand < 0.33) {
@@ -29,13 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         sparkle.classList.add(sparkleClass);
-
         sparkle.style.top = Math.random() * window.innerHeight + "px";
         sparkle.style.left = Math.random() * window.innerWidth + "px";
-
         document.body.appendChild(sparkle);
-
-   
         setTimeout(() => {
             sparkle.remove();
         }, 1500);
@@ -84,19 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     yesButton.addEventListener("click", () => {
         helloKittyImage.src = "pic/meoyeu.png";
-        
+        questionText.innerText = "Chứ còn j nữa 💖"; 
         const message = document.createElement("div");
         message.classList.add("message");
         message.innerText = "💖˚🎂˖ e xinh lắm! 𓍢ִ໋🌷͙֒✧˚.🎀༘⋆";  
-
 
         message.addEventListener("click", () => {
             window.open("https://drive.google.com/file/d/1ygSB0BWj_xa4EKHjCJbue3p1Jo6sJDPo/view?usp=sharing", "_blank"); 
         });
 
         document.body.appendChild(message);
-        
-
         document.body.classList.add("no-scroll");
 
         setTimeout(() => {
@@ -108,6 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
         playMusic(); 
     });
 
-  
     stopMusicOnTabChange();
 });

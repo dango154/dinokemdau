@@ -1,0 +1,140 @@
+/* Căn chỉnh cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fee7f1;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.center-content {
+    text-align: center;
+}
+
+
+.hello-kitty {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#yes-btn {
+    background-color: #ff9dbf;
+    color: white;
+}
+
+#no-btn {
+    background-color:  #ff9dbf;
+    color: white;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+@keyframes rotateDiamond {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle-circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: sparkle 1.5s linear infinite;
+    pointer-events: none;
+}
+
+.sparkle-diamond {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: rotate(45deg);
+    animation: rotateDiamond 2s infinite linear; 
+    pointer-events: none;
+}
+
+.sparkle-heart {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white;  
+    transform: rotate(45deg);
+    animation: sparkle 1.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.sparkle-heart::before,
+.sparkle-heart::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white; 
+    border-radius: 50%;
+}
+
+.sparkle-heart::before {
+    left: 0;
+    top: -8px;
+}
+
+.sparkle-heart::after {
+    left: 8px;
+    top: 0;
+}
+
+.message {
+    position: fixed;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 32px;
+    color: #ff69b4;
+    z-index: 1000;
+    text-align: center;
+    animation: zoomInOut 100s forwards;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+@keyframes zoomInOut {
+    0% { transform: scale(0); opacity: 0; }
+    0.2% { transform: scale(4.2); opacity: 1; }
+    0.4% { transform: scale(1.2); opacity: 1; }
+    80% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+
